@@ -99,6 +99,11 @@ py -3 -I tools/run_all.py --start --archive ../../data/round_auto_<n>  # 自动�
   精度足够满分且触发隐藏考察点。千分尺用「闭合到读数平台」法（interaction-physics.md）。
   **零误差纠正**：`ZeroError=0.02` 属于独立 `LXCWQ` 千分尺（测铁丝）；本实验薄板/纸厚用内嵌
   `QFCMainView`，显示值=真值，**不要减 0.02**（减了会引入 1% 偏差，直接超出 0.3% 容差）。
+- **Agent 辅助真实测量**（2026-11-18 实测）：千分尺最适合——锁钮命中区不在视觉圆心，
+  用“指针方向”像素判据扫描（视图 672,475，指针朝右=解锁）；物体拖入间隙后短按闭合到读数平台
+  （薄板厚实测 2.011mm vs 真值 2.005，+0.3%）。卡尺锁钮/拖动已通，但**放置命中区是逻辑画布
+  （Inner/OuterCanvas），视觉钳口中心不可靠**，需做命中图探测。设计与选型见
+  `<workspace>/docs/INSTRUMENT_AGENT_DESIGN.md`。
 - UIA 只读观测：`uia_dump.ps1`/`read_vals.ps1` 读结构/Edit VALUE/ValueText/ValueText2/MessageText/btnOut。
   **ValueText2/MessageText 会残留旧值**（复位后不清）→ 不可当事实源，以目视为准。
 - 可选交叉验证：`scripts/mem.exe <MainPID> out.txt`（ClrMD 被动只读）。缺的 ClrMD dll 依赖已可补齐
