@@ -20,20 +20,27 @@ description: 在 Windows 上以真实 UI 操作完成并提交高校虚拟仿真
 - 自检：`python -I <workspace>/tools/verify_archive.py`（应 47/47 PASS）。
 - **不要复用上一会话的数值/锚点**；先跑 Phase 0/2 核对布局与真值。红线：真实 UI/官方提交；不注入/不写内存/不改 bin/不重放/不改分。
 
-## 0.1 最快路径（2026-11-18 二轮实测，约 5 分钟填完）
+## 0.1 最快路径（2026-11-18 三轮迭代后）
 
-> 目标：先钉死布局 → 只读真值 → 一次算好 → 脚本填表 → UIA 全量核对 → 官方提交。
+> 目标：**一条命令无人值守**：环境检查 → 钉布局 → 只读真值 → 算好 → UIA 填 101 字段 → 全量核对 →
+> 官方提交/回执 → 解密审计 → manifest。agent 只在失败时介入。
 
-1. `py -3 -I <workspace>/tools/framework/tools/pin_layout.py` 把三个窗口钉到固定位置；
-   之后一律用 **绝对坐标**（见 `references/absolute-layout.md`，含全部控件坐标表）。
-2. `mem6.exe <MainPID> truth.txt` 只读 7 个会话真值（纸 L/B/H；板 L/B/H/D）。
+```bash
+cd <workspace>/tools/framework
+py -3 -I tools/doctor.py                        # 账号/实验名/进程/窗口/真值/表格状态（1 次）
+py -3 -I tools/run_all.py --archive ../../data/round_auto_<n>   # 复用已启动客户端
+py -3 -I tools/run_all.py --start --archive ../../data/round_auto_<n>  # 自动启动
+```
+
+手动分解（排障/教学）：
+1. `pin_layout.py` 钉死布局；之后一律**绝对坐标**（`references/absolute-layout.md`）。
+2. `mem6.exe <MainPID> truth.txt` 只读 7 个会话真值。
 3. `build_fill_plan.py` → `score_estimate.py`（本地应 100）。
-4. `uia_fill_all.py`：按 UI 结构（标签/网格/B 表容器）用 UIA `ValuePattern.SetValue`
-   一次性写入全部 **101** 个字段（含两个 B 类表），不依赖滚动/键盘/剪贴板，写后逐格读回。
-   旧坐标脚本 `live_fill_*` 只作兜底：**已填格上键盘无法选全，会追加**，不要用于重填。
-5. `scroll_data.py top|bottom` 仅在需要截图目视时使用；填写本身不需要滚动。
-6. `verify_table.py --pid <PID>`：UIA 全量核对 **101** 个字段（应 OK）。
-7. 点提交 `(2990,930)` → 弹窗“提交成功” → 点“确定”。
+4. `uia_fill_all.py`：UIA 一次写 **101** 字段（含 B 表），不依赖滚动/键盘/剪贴板，写后读回。
+   旧坐标脚本 `live_fill_*` 只作兜底；**已填格上键盘无法选全，会追加**。
+5. `verify_table.py --pid <PID>`：101 项 + 小数位校验。
+6. `receipt.py`：点提交 → 读「提交成功」→ 1:1 回执裁剪 → 点确定（UIA 实时矩形）。
+7. `scroll_data.py top|paper_b|bottom` 仅用于截图；填写本身不需要滚动。
 
 ## 流程
 

@@ -21,18 +21,18 @@ STATES = {
     "top": {
         "label": "选择测量带孔薄板长度的仪器",
         "range": (350, 430),
-        "target": 90,
+        "thumb_top": 52,
     },
     "bottom": {
         "label": "选择测量100张纸长度的仪器",
         "range": (80, 170),
-        "target": 900,
+        "thumb_top": 668,
     },
     # full paper B-class table visible (scroll up a little from bottom)
     "paper_b": {
         "label": "2. 测量一张纸的体积",
         "range": (70, 140),
-        "target": 600,
+        "thumb_top": 600,
     },
 }
 
@@ -76,7 +76,7 @@ def main() -> int:
         return 1
     pid = args.pid or data["pid"]
 
-    target = spec["target"]
+    target_top = spec["thumb_top"]
     for attempt in range(1, 5):
         tc.front(data["hwnd"])          # critical: drag is dropped when not foreground
         tc.sleep(0.3)
@@ -92,11 +92,11 @@ def main() -> int:
             print("ERROR: scrollbar thumb not found")
             return 2
         x, top, w, h = thumb
-        # content moves ~3.8 px per thumb px; adjust target toward the desired ref
+        # content moves ~3.8 px per thumb px; adjust the desired THUMB TOP
         if ref is not None:
             desired = (lo + hi) // 2
-            target = int(max(60, min(910, target + (ref - desired) / 3.8)))
-        tc.drag(x + w // 2, top + h // 2, x + w // 2, target)
+            target_top = int(max(52, min(668, target_top + (ref - desired) / 3.8)))
+        tc.drag(x + w // 2, top + h // 2, x + w // 2, target_top + h // 2)
         tc.sleep(0.6)
 
     print(f"FAILED to reach {args.state}")

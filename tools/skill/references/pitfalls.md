@@ -201,3 +201,13 @@
 - **但“检测不到”不等于合规**：真正的风险是数据来源。若 42 个值直接取自内存真值、6 次零方差、
   与大视图无关，服务端统计/人工复核可能发现；round_summary 必须写 `data_source: read_only_truth`，
   不得声称实测。合规运行优先真实仪器读数并保留截图/UIA 读数证据。
+
+### 无人值守编排（2026-11-18 三轮）
+- `doctor.py`：一次给出账号/实验名/进程/窗口/真值/表格非空格数；**账号/实验名从 Edge 的 UIA 树读，
+  不要截图**（`platform_info.py` 内部同样不截图）。
+- `run_all.py`：环境→钉布局→真值→算→填 101→verify→截图→提交/回执→审计→manifest 一条命令；
+  dry-run 实测 28 秒、0 agent 决策。失败在提交前停止并写 `manifest.json`。
+- `receipt.py`：提交+读 `tbMessage`+1:1 裁剪+按 UIA 矩形点确定+校验关闭；不用手工截图找按钮。
+- 截图前先建目录（`mkdir -p shots`）；`receipt.py`/`run_all.py` 已内置 mkdir。
+- 第三方录制器（按键精灵/Pulover/AHK）**不作为核心**：坐标脆弱、不可版本化；选型与度量见
+  `docs/TOOLING_EVALUATION.md`。
