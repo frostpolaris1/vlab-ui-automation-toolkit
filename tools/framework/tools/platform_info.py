@@ -21,6 +21,8 @@ ADDR_RE = re.compile(r"Edit name=\[地址和搜索栏\].*?VALUE=\[(?P<url>[^\]]*
 ACCT_RE = re.compile(r"ListItem name=\[(?P<name>[^，\]]+)，欢迎您")
 LAB_RE = re.compile(r"Document name=\[(?P<name>[^\]]+)\] aid=\[RootWebArea\]")
 START_RE = re.compile(r"Hyperlink name=\[开始实验\].*?@(?P<x>-?\d+),(?P<y>-?\d+),(?P<w>\d+)x(?P<h>\d+)")
+# the real launcher is the big astartlab hyperlink; the sidebar link only navigates
+START_AID_RE = re.compile(r"Hyperlink name=\[开始实验\] aid=\[astartlab\].*?@(?P<x>-?\d+),(?P<y>-?\d+),(?P<w>\d+)x(?P<h>\d+)")
 
 
 def parse(text: str) -> dict:
@@ -46,7 +48,7 @@ def parse(text: str) -> dict:
                         out["lab"] = name
                         break
             break
-    m = START_RE.search(text)
+    m = START_AID_RE.search(text) or START_RE.search(text)
     if m:
         x, y, w, h = (int(m.group(k)) for k in ("x", "y", "w", "h"))
         out["start_button"] = {"rect": [x, y, w, h], "center": [x + w // 2, y + h // 2]}

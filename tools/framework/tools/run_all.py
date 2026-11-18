@@ -114,7 +114,14 @@ class Runner:
                 capture_output=True, text=True, encoding="mbcs", errors="replace")
             if ps.stdout.strip():
                 self.log("start", f"Main started pid={ps.stdout.strip()}")
-                return
+                # the data/main windows appear a few seconds after the process
+                wdeadline = time.time() + 25
+                while time.time() < wdeadline:
+                    if self.tc.find("误差配套实验"):
+                        self.log("start", "main window ready")
+                        return
+                    time.sleep(1.0)
+                raise RuntimeError("Main window did not appear within 25s")
             time.sleep(1.0)
         raise RuntimeError("Main.exe did not start within 40s")
 
@@ -190,7 +197,8 @@ class Runner:
             raise RuntimeError("local score is not 100; see score_estimate_output.txt")
 
     def pin(self):
-        self.run([sys.executable, "-I", str(ROOT / "tools" / "pin_layout.py")], "pin")
+        self.run([sys.executable, "-I", str(ROOT / "tools" / "pin_layout.py"),
+                  "--wait", "15"], "pin")
         wins = self.tc.wins()
         self.data = next((w for w in wins if w["title"] == "实验数据表格"), None)
         if not self.data:

@@ -173,11 +173,15 @@
 - `tools/framework/tools/scroll_data.py top|bottom`：front → 从 UIA 找 Thumb 实际位置 → 拖 → 用
   Choose2/Choose5 的 y 校验，失败自动重试（实测 top ref=388、bottom ref=118）。
 
-### 协议弹窗「打开」
+### 协议弹窗「打开」与开始按钮
+- **开始实验有两个入口**：侧栏绿色「开始实验」只是菜单链接（点了不启动）；真正的启动器是页面中间的大按钮
+  `Hyperlink name=[开始实验] aid=[astartlab]`（实测 @864,1292,372x112）。`platform_info.py` 已优先取 `astartlab`。
+- 点击大按钮后，协议弹窗**在 Edge 的 UIA 子树里**（`Window name=[此站点正在尝试打开 USTCORi.WebLabClient。]`，
+  `Button name=[打开]`）；`run_all.py --start` 会自动用 UIA 找它并点击（本轮实测 @1127,375，中心 1169,403）。
 - 不要用全屏截图的缩放比例估坐标；用 `ui.exe shot <out> <x> <y> <w> <h>` 做 **1:1 局部裁剪**
-  看按钮，或用 UIA 取实时矩形。3840×2160 本机实测「打开」在 `(1170,403)` 与 `(1350,403)`
-  都出现过——**位置会变，必须每次局部截图定位**。
+  看按钮，或用 UIA 取实时矩形。位置会变，必须每次局部截图/实时 UIA 定位。
 - 不要按回车（默认按钮可能是取消）。
+- 启动后 `Main.exe` 进程先出现，**主窗/数据表晚几秒**：`pin_layout.py --wait 15`（run_all 已内置）等必需窗口。
 
 ### 滚动状态（scroll_data.py）
 - `top`（GB Choose2 y≈388）/ `bottom`（纸 Choose5 y≈118）/ `paper_b`（纸节标题 y≈103，
