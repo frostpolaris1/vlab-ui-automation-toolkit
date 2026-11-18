@@ -201,7 +201,10 @@ Agent 的处理：
 | `core/compliance.py` | 白名单/审计 |
 | `tools/calibrate.py` | 校准截图 + anchors 模板 |
 | `tools/pin_layout.py` | **把主窗/数据表/两个大视图钉到固定绝对坐标**（之后直接用绝对坐标） |
-| `tools/verify_table.py` | 提交前 UIA 全量核对数据表（101 个应填字段） |
+| `tools/scroll_data.py` | 把数据表滚到规范状态（front + 抓 Thumb + 参考字段校验） |
+| `tools/uia_fill_all.py` | **一次写入全部 101 字段（含 B 表）**，按标签/网格结构映射，不依赖滚动/键盘，幂等 |
+| `tools/uia_set_by_index.ps1` | 按 Edit 文档顺序 SetValue 的 PowerShell 助手 |
+| `tools/verify_table.py` | 提交前 UIA 全量核对数据表（101 个应填字段 + 小数位检查） |
 | `tools/live_fill_b_tables.py` | 填两个 0 分 B 类不确定度表（12+9 格，UIA SetValue + 读回） |
 | `tools/uia_set_b_tables.ps1` | 按表格容器写入 B 类表的 PowerShell 助手 |
 | `tools/uia_anchor_suggest.py` | UIA 控件名/相对坐标建议（减少手填锚点） |

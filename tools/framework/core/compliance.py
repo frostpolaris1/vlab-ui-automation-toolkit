@@ -29,6 +29,8 @@ ALLOWED_SCRIPTS = {
     "score_estimate.py",
     "check_saved_exam.py",
     "decrypt_examconfig.ps1",
+    "verify_table.py",
+    "uia_fill_all.py",
 }
 
 # Extra guard: reject any action name that smells destructive.

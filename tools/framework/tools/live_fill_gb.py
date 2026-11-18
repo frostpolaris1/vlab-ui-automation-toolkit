@@ -41,7 +41,7 @@ def main() -> int:
     # Choose1-4 edit centers (data-relative): x=900, y=401/456/511/566
     for i, y in enumerate([401, 456, 511, 566]):
         tc.dblclick(ox + 900, oy + y)
-        tc.ctrl_a()
+        tc.select_all()
         tc.chord(0x10, ord(vals["choose"][i]))
         tc.enter()
         time.sleep(0.15)
@@ -53,7 +53,7 @@ def main() -> int:
             x = ox + 288 + c * 140
             y = oy + 696 + r * 38
             tc.dblclick(x, y)
-            tc.ctrl_a()
+            tc.select_all()
             tc.type_text(vals["gb"]["data"][k][c])
             tc.enter()
             time.sleep(0.12)

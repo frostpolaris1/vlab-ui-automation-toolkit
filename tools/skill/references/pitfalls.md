@@ -153,3 +153,46 @@
   报 “data window not found”。
 - 对策：**脚本内不写中文常量**，把标题/表头作为参数由 Python 传入（native argv 是 Unicode）；
   或把 `.ps1` 保存为 UTF-8 with BOM。`uia_set_b_tables.ps1` 已按前者改造。
+
+## 会话6（2026-11-18 测试账号轮次）实测新增
+
+### 框架控制器 bug（已修）
+- `Toolchain.__init__` 里 `self.uia_dump = .../uia_dump.ps1` **覆盖了同名方法**，调用时
+  `TypeError: 'WindowsPath' object is not callable`。
+- 且 `subprocess` 直接 CreateProcess 一个 `.ps1` 会 `WinError 193`。
+- 修复：属性改名 `uia_dump_ps1`；`_run()` 检测 `.ps1` 时改用
+  `powershell -NoProfile -ExecutionPolicy Bypass -File <ps1> ...`。`uia_read` 也随之可用。
+
+### 剪贴板间歇失效（已修）
+- 客户端/远程会话会短暂锁剪贴板，`Set-Clipboard` 抛 `ExternalException`，导致 ± 表达式字段没填上。
+- 修复：`Toolchain.clipboard_set()` 内置退避重试（8 次）+ `[Windows.Forms.Clipboard]::SetText`
+  STA 兜底；填完仍要用 `clipboard_codepoints()` 读回 ±=177。
+
+### 滚动一律用 scroll_data.py
+- 手工 `drag` 前不 front 数据窗会**静默无效**（坐标对也不动）；从轨道空白起拖只翻一页。
+- `tools/framework/tools/scroll_data.py top|bottom`：front → 从 UIA 找 Thumb 实际位置 → 拖 → 用
+  Choose2/Choose5 的 y 校验，失败自动重试（实测 top ref=388、bottom ref=118）。
+
+### 协议弹窗「打开」
+- 不要用全屏截图的缩放比例估坐标；用 `ui.exe shot <out> <x> <y> <w> <h>` 做 **1:1 局部裁剪**
+  看按钮，或用 UIA 取实时矩形。3840×2160 本机实测「打开」约 `(1350,403)`，但每次仍应截图确认。
+- 不要按回车（默认按钮可能是取消）。
+
+### 已填格不可用键盘重填（重要）
+- WPF 表格的 Edit 在**已有值**时，`Ctrl+A` 与 `End+Shift+Home` 都可能被控件吞掉，
+  接着输入会**追加**（`38.02` → `38.023802`、`AA`）。坐标脚本只适合空表首次填写。
+- 重填/修正一律用 UIA：`tools/framework/tools/uia_fill_all.py`（全部 101 字段，按标签/网格/B 表
+  结构映射，`uia_set_by_index.ps1` 按 Edit 文档顺序 SetValue 并逐格读回）。
+- 实测：在已填表上重复运行 `uia_fill_all.py` 仍 `SET=101 BAD=0`，`verify_table` 101/101，幂等。
+
+### 零误差（审计修订）
+- `ZeroError=0.02` 属于独立 `LXCWQ` 千分尺（测铁丝）；本实验薄板/纸厚用内嵌 `QFCMainView`，
+  显示值不含零偏，**不要减 0.02**。薄板厚减 0.02 = 1% 偏差，直接超出 ±0.3% 容差。
+
+### 客户端检测与合规（审计结论）
+- 客户端/启动器**没有主动识别自动化**的代码：无键鼠钩子、Raw Input、`GetAsyncKeyState`、
+  `EnumProcesses`、截屏/反调试/完整性校验；唯一钩子是 `WH_CALLWNDPROC`（IPC/WM_COPYDATA）。
+  启动器只查 4 个已知 USTCORi 进程名。`RecordingClient` 是麦克风录音（非录屏）。
+- **但“检测不到”不等于合规**：真正的风险是数据来源。若 42 个值直接取自内存真值、6 次零方差、
+  与大视图无关，服务端统计/人工复核可能发现；round_summary 必须写 `data_source: read_only_truth`，
+  不得声称实测。合规运行优先真实仪器读数并保留截图/UIA 读数证据。

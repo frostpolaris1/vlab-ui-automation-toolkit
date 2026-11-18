@@ -41,7 +41,7 @@ def main() -> int:
     # Choose5-7 at (870,133/198/263)
     for i, y in enumerate([132, 187, 242]):
         tc.click(ox + 874, oy + y)
-        tc.ctrl_a()
+        tc.select_all()
         tc.chord(0x10, ord(["A", "A", "C"][i]))
         time.sleep(0.12)
 
@@ -51,7 +51,7 @@ def main() -> int:
             x = ox + 288 + c * 140
             y = oy + 372 + r * 38
             tc.dblclick(x, y)
-            tc.ctrl_a()
+            tc.select_all()
             tc.type_text(p["data"][k][c])
             tc.enter()
             time.sleep(0.1)
@@ -63,7 +63,7 @@ def main() -> int:
     ]
     for y, val in stats:
         tc.click(ox + 500, oy + y)
-        tc.ctrl_a()
+        tc.select_all()
         if "±" in val:
             tc.clipboard_set(val)
             tc.ctrl_v()

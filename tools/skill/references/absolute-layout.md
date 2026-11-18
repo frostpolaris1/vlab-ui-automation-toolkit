@@ -114,10 +114,10 @@ py -3 -I tools/pin_layout.py --check  # 只检查当前位置
 ```bash
 cd <workspace>/tools/framework
 py -3 -I tools/pin_layout.py                     # 1) 钉窗口
-# 2) 数据表滚到顶部（抓滑块拖到 y≈90）
+py -3 -I tools/scroll_data.py top                # 2) 滚到顶部（front+Thumb+校验）
 py -3 -I tools/live_fill_gb.py                   # 3) Choose1-4 + 薄板 6×
 py -3 -I tools/live_fill_gb_stats.py             # 4) 24 个统计（Tab 顺序；默认起点 518,873）
-# 5) 数据表滚到底部（抓滑块拖到 y≈900，一次到底；确认 Choose5 y≈118）
+py -3 -I tools/scroll_data.py bottom             # 5) 滚到底部（校验 Choose5 y≈118）
 py -3 -I tools/live_fill_paper.py                # 6) 纸节全部
 py -3 -I tools/live_fill_b_tables.py             # 7) 两个 B 类表（12+9 格，UIA 写入）
 py -3 -I tools/verify_table.py --pid <MainPID>   # 8) UIA 全量核对（101 项）

@@ -68,13 +68,13 @@
     },
     "FieldMap": {
       "action": "run_script",
-      "params": {"script": "gen_field_map.py", "args": ["../data/package/ExamConfig_3.xml", "fill_values.json"]},
+      "params": {"script": "gen_field_map.py", "args": ["../../source/config/ExamConfig_3.xml", "fill_values.json"]},
       "on_fail": "agent",
       "next": "Review"
     },
     "Review": {
       "action": "run_script",
-      "params": {"script": "score_estimate.py", "args": ["../data/package/ExamConfig_3.xml", "fill_values.json", "95"]},
+      "params": {"script": "score_estimate.py", "args": ["../../source/config/ExamConfig_3.xml", "fill_values.json", "95"]},
       "on_fail": "agent",
       "next": "Fill"
     },
@@ -87,6 +87,12 @@
     "Verify": {
       "action": "verify",
       "params": {"values": "fill_values.json"},
+      "on_fail": "agent",
+      "next": "TableGate"
+    },
+    "TableGate": {
+      "action": "run_script",
+      "params": {"script": "verify_table.py", "args": []},
       "on_fail": "agent",
       "next": "PreSubmitGate"
     },

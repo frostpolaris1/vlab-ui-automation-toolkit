@@ -30,6 +30,11 @@ def norm(s: str) -> str:
         return s
 
 
+def dec_count(s: str) -> int:
+    s = s.strip()
+    return len(s.split(".", 1)[1]) if "." in s else 0
+
+
 def expected_values(fill: dict) -> list[str]:
     out: list[str] = []
     out.extend(fill["choose"])
@@ -95,7 +100,8 @@ def main() -> int:
 
     fill = json.loads(Path(args.fill).read_text(encoding="utf-8"))
     exp = Counter(norm(v) for v in expected_values(fill))
-    act = Counter(norm(v) for v in actual_values(pid))
+    act_list = actual_values(pid)
+    act = Counter(norm(v) for v in act_list)
 
     missing = exp - act
     extra = act - exp
@@ -108,6 +114,21 @@ def main() -> int:
         print("UNEXPECTED:")
         for v, n in sorted(extra.items()):
             print(f"  {n} x {v}")
+
+    # hidden checks depend on DECIMAL PLACES, not just numeric value
+    dec_fail = []
+    for section, key, want_dec in (("gb", "B", 2), ("gb", "H", 3), ("paper", "H", 3)):
+        want = float(fill[section]["data"][key][0])
+        same = [v for v in act_list if norm(v) == repr(round(want, 12))]
+        good = [v for v in same if dec_count(v) == want_dec]
+        if len(good) < 6:
+            dec_fail.append((section, key, want_dec, len(good), same[:3]))
+    if dec_fail:
+        print("DECIMAL FAIL (hidden checks):")
+        for sec, key, d, n, sample in dec_fail:
+            print(f"  {sec}.{key}: need >=6 values with exactly {d} decimals, got {n}; sample={sample}")
+        return 1
+
     if not missing and not extra:
         print("OK: all expected values present, no unexpected non-empty cells")
         return 0

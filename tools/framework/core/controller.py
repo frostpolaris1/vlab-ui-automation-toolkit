@@ -30,15 +30,20 @@ class Toolchain:
         self.input2 = self.tool_dir / "input2.exe"
         self.ui = self.tool_dir / "ui.exe"
         self.read_vals = self.tool_dir / "read_vals.ps1"
-        self.uia_dump = self.tool_dir / "uia_dump.ps1"
+        self.uia_dump_ps1 = self.tool_dir / "uia_dump.ps1"
         self.timeout = timeout
-        for p in (self.input, self.input2, self.ui, self.read_vals, self.uia_dump):
+        for p in (self.input, self.input2, self.ui, self.read_vals, self.uia_dump_ps1):
             if not p.exists():
                 raise FileNotFoundError(f"toolchain missing: {p}")
 
     # ---------- low level ----------
     def _run(self, exe: Path, *args: Any, timeout: Optional[float] = None) -> str:
-        cmd = [str(exe)] + [str(a) for a in args]
+        # .ps1 must be launched via powershell (direct CreateProcess -> WinError 193)
+        if str(exe).lower().endswith(".ps1"):
+            cmd = ["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass",
+                   "-File", str(exe)] + [str(a) for a in args]
+        else:
+            cmd = [str(exe)] + [str(a) for a in args]
         # ui.exe / read_vals.ps1 emit Chinese in the Windows ANSI codepage (GBK).
         p = subprocess.run(
             cmd, capture_output=True, text=True, encoding="mbcs", errors="replace",
@@ -137,6 +142,15 @@ class Toolchain:
     def ctrl_a(self) -> None:
         self.chord(0x11, 0x41)
 
+    def select_all(self) -> None:
+        """Select the whole TextBox content via End + Shift+Home.
+
+        More reliable than Ctrl+A inside WPF DataGrid cells that already hold a
+        value: Ctrl+A can be swallowed, making the next keystrokes append.
+        """
+        self.key(0x23)          # End
+        self.chord(0x10, 0x24)  # Shift+Home
+
     def ctrl_v(self) -> None:
         self.chord(0x11, 0x56)
 
@@ -147,7 +161,25 @@ class Toolchain:
     def clipboard_set(self, text: str) -> None:
         tmp = Path(tempfile.gettempdir()) / "vlab_clip.txt"
         tmp.write_text(text, encoding="utf-8")
-        self._ps(f"Get-Content -Raw -Encoding UTF8 '{tmp}' | Set-Clipboard")
+        last = None
+        # clipboard can be transiently locked by the client; retry with backoff
+        for delay in (0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5):
+            try:
+                self._ps(f"Get-Content -Raw -Encoding UTF8 '{tmp}' | Set-Clipboard")
+                return
+            except Exception as e:  # noqa: BLE001
+                last = e
+                time.sleep(delay)
+        # .NET fallback (STA clipboard API)
+        p = subprocess.run(
+            ["powershell", "-NoProfile", "-STA", "-ExecutionPolicy", "Bypass", "-Command",
+             "Add-Type -AssemblyName System.Windows.Forms; "
+             f"[System.Windows.Forms.Clipboard]::SetText([IO.File]::ReadAllText('{tmp}', [Text.Encoding]::UTF8))"],
+            capture_output=True, text=True, encoding="mbcs", errors="replace",
+            timeout=self.timeout,
+        )
+        if p.returncode != 0:
+            raise RuntimeError(f"clipboard set failed: {p.stderr.strip()} (last={last})")
 
     def clipboard_codepoints(self) -> list[int]:
         out = self._ps("$s = Get-Clipboard; ($s.ToCharArray() | ForEach-Object { [int]$_ }) -join ','")
@@ -165,7 +197,7 @@ class Toolchain:
         return state
 
     def uia_dump(self, pid: int, out_path: str, max_nodes: int = 4000) -> str:
-        return self._run(self.uia_dump, "-Pid_", pid, "-Out", out_path, "-MaxNodes", max_nodes)
+        return self._run(self.uia_dump_ps1, "-Pid_", pid, "-Out", out_path, "-MaxNodes", max_nodes)
 
     # ---------- convenience ----------
     def sleep(self, seconds: float) -> None:

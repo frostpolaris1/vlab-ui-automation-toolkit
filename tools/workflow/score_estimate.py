@@ -102,6 +102,22 @@ def main():
         total += sc
         rows.append((name, str(real), str(standard), sc, max_score, why, note))
 
+    def dec_count(s):
+        s = str(s).strip()
+        return len(s.split(".", 1)[1]) if "." in s else 0
+
+    def hidden_value(name):
+        """Hidden checks are decimal-place checks on the submitted strings."""
+        if name == "IsMeasureGBWidthUseYBKC":
+            vals, d = fill["gb"]["data"]["B"], 2
+        elif name == "IsMeasureGBThicknessUseQFC":
+            vals, d = fill["gb"]["data"]["H"], 3
+        elif name == "IsMeasurePaperWidthUseYBKC":
+            vals, d = fill["paper"]["data"]["H"], 3
+        else:
+            return "true"
+        return "true" if all(dec_count(v) == d for v in vals) else "false"
+
     for tt in root.findall("Content/Question/CheckPoint/TestTarget"):
         for para in tt.findall("Group/Para"):
             name = text(para, "Name")
@@ -137,7 +153,7 @@ def main():
                 i = int(name[6:]) - 1
                 add(name, fill["choose"][i], std["choose"][i], judge, score)
             elif name.startswith("IsMeasure"):
-                add(name, "true", "true", judge, score)
+                add(name, hidden_value(name), "true", judge, score)
             elif name in ("GBVExpression", "PaperVExpression"):
                 sec = "gb" if name.startswith("GB") else "paper"
                 add(name, fill[sec]["expr"], std[sec]["expr"], judge, score)

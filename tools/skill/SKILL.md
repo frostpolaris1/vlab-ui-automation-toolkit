@@ -28,11 +28,11 @@ description: 在 Windows 上以真实 UI 操作完成并提交高校虚拟仿真
    之后一律用 **绝对坐标**（见 `references/absolute-layout.md`，含全部控件坐标表）。
 2. `mem6.exe <MainPID> truth.txt` 只读 7 个会话真值（纸 L/B/H；板 L/B/H/D）。
 3. `build_fill_plan.py` → `score_estimate.py`（本地应 100）。
-4. 三个 fill 脚本（`live_fill_gb.py` → `live_fill_gb_stats.py` → 滚到底 → `live_fill_paper.py`），
-   统计字段用 **Tab 顺序**、± 用剪贴板。
-5. `live_fill_b_tables.py`：两个 0 分 B 类不确定度表（薄板 12 格 + 纸 9 格），
-   从 `fill_values.json` 的 `table1/table3` 经 UIA SetValue 写入（不依赖滚动，自带读回）。
-6. `verify_table.py --pid <PID>`：UIA 全量核对 **101** 个应填字段（80 评分 + 21 B 表，应 OK）。
+4. `uia_fill_all.py`：按 UI 结构（标签/网格/B 表容器）用 UIA `ValuePattern.SetValue`
+   一次性写入全部 **101** 个字段（含两个 B 类表），不依赖滚动/键盘/剪贴板，写后逐格读回。
+   旧坐标脚本 `live_fill_*` 只作兜底：**已填格上键盘无法选全，会追加**，不要用于重填。
+5. `scroll_data.py top|bottom` 仅在需要截图目视时使用；填写本身不需要滚动。
+6. `verify_table.py --pid <PID>`：UIA 全量核对 **101** 个字段（应 OK）。
 7. 点提交 `(2990,930)` → 弹窗“提交成功” → 点“确定”。
 
 ## 流程
@@ -82,6 +82,8 @@ description: 在 Windows 上以真实 UI 操作完成并提交高校虚拟仿真
 ### 4 真实数据：仪器实测为主，内存/UIA 只作旁证
 - **真值首选真实仪器实测**（目视刻度）：直尺放大镜绝对 cm 左/右相减；卡尺主尺+游标(0.02mm)；千分尺套筒+微分筒(0.001mm)。
   精度足够满分且触发隐藏考察点。千分尺用「闭合到读数平台」法（interaction-physics.md）。
+  **零误差纠正**：`ZeroError=0.02` 属于独立 `LXCWQ` 千分尺（测铁丝）；本实验薄板/纸厚用内嵌
+  `QFCMainView`，显示值=真值，**不要减 0.02**（减了会引入 1% 偏差，直接超出 0.3% 容差）。
 - UIA 只读观测：`uia_dump.ps1`/`read_vals.ps1` 读结构/Edit VALUE/ValueText/ValueText2/MessageText/btnOut。
   **ValueText2/MessageText 会残留旧值**（复位后不清）→ 不可当事实源，以目视为准。
 - 可选交叉验证：`scripts/mem.exe <MainPID> out.txt`（ClrMD 被动只读）。缺的 ClrMD dll 依赖已可补齐

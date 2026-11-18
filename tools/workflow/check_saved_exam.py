@@ -204,6 +204,20 @@ def main():
                 total += p.get("score", 0.0)
             rows.append((name, exp, act, std, "OK" if ok else "MISMATCH", group))
 
+    # hidden decimal-place checks (1 point each; previously omitted -> 96/100)
+    for name, dec in (
+        ("IsMeasureGBWidthUseYBKC", 2),
+        ("IsMeasureGBThicknessUseQFC", 3),
+        ("IsMeasurePaperWidthUseYBKC", 3),
+    ):
+        p = paras.get(name, {})
+        act = str(p.get("real", "")).strip().lower()
+        ok = act in ("true", "1")
+        if ok:
+            total += p.get("score", 0.0)
+        rows.append((name, "true", act, p.get("std", ""), "OK" if ok else "MISMATCH",
+                     f"decimal check ({dec}dp)"))
+
     # print
     print(f"{'field':32s} {'expected':>16s} {'actual':>16s} {'std':>16s} status")
     for name, exp, act, std, status, note in rows:

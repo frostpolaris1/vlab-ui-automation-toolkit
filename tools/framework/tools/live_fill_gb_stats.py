@@ -50,8 +50,8 @@ def main() -> int:
 
     # first stats field at the given data-relative point
     tc.click(ox + sx, oy + sy)
-    tc.ctrl_a()
     for i, val in enumerate(vals):
+        tc.select_all()
         if "±" in val:
             tc.clipboard_set(val)
             tc.ctrl_v()
