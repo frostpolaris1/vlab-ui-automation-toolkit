@@ -202,8 +202,9 @@ Agent 的处理：
 | `tools/calibrate.py` | 校准截图 + anchors 模板 |
 | `tools/doctor.py` | 一次环境报告：账号/实验名/进程/窗口/真值/表格状态（无截图） |
 | `tools/platform_info.py` | 从 Edge 的 UIA 树读账号/实验名/URL/开始实验按钮（无截图） |
-| `tools/run_all.py` | **无人值守端到端**：环境→钉布局→真值→算→填 101→verify→截图→提交/回执→审计→manifest |
+| `tools/run_all.py` | **无人值守端到端**：环境→钉布局→真值→算→填 101→verify→截图→提交/回执→审计→导出→manifest |
 | `tools/receipt.py` | 提交 + 读「提交成功」+ 1:1 回执裁剪 + 按 UIA 矩形点确定 |
+| `tools/export_round.py` | 导出 CSV / XLSX / HTML（无三方依赖，内置 OOXML 生成器） |
 | `tools/pin_layout.py` | **把主窗/数据表/两个大视图钉到固定绝对坐标**（之后直接用绝对坐标） |
 | `tools/scroll_data.py` | 把数据表滚到规范状态（top/bottom/paper_b，front + 抓 Thumb + 校验） |
 | `tools/uia_fill_all.py` | **一次写入全部 101 字段（含 B 表）**，按标签/网格结构映射，不依赖滚动/键盘，幂等 |

@@ -215,3 +215,15 @@
 - 截图前先建目录（`mkdir -p shots`）；`receipt.py`/`run_all.py` 已内置 mkdir。
 - 第三方录制器（按键精灵/Pulover/AHK）**不作为核心**：坐标脆弱、不可版本化；选型与度量见
   `docs/TOOLING_EVALUATION.md`。
+
+### 一键启动与数据导出（2026-11-18 四轮）
+- 一键入口：`启动实验.cmd`（ASCII 包装）→ `tools/launcher.ps1`（UTF-8 BOM，控制台 UTF-8）。
+  `-DoctorOnly` 只查环境；`-Force` 跳过“已填字段/可能已提交”确认；`-NoSubmit` 只填不提交。
+- **控制台编码坑**：`chcp 65001` 后 `ui.exe` 输出 UTF-8，而 controller 之前固定按 GBK 解码 →
+  窗口标题匹配失败（表现为 main/data SKIP）。已改为按 `GetConsoleOutputCP()` 解码。
+- **Read-Host 坑**：stdin 被重定向时返回 `$null`；必须 `[string]$ans` 再比较，否则守卫条件可能失效。
+  自动化测试用 `-Force`，不要依赖空输入。
+- 防重复提交：launcher 读取 `logs/doctor.json` 的 `table_nonempty_edits`，>0 时提示；
+  `-Force` 用于批量/无人值守。
+- 数据导出：`export_round.py` 生成 `export/{measurements.csv,fill_values.csv,round_data.xlsx,report.html}`；
+  XLSX 用 stdlib zipfile 手写 OOXML（无三方依赖），已用表格查看器验证 4 个 sheet 可正常打开。

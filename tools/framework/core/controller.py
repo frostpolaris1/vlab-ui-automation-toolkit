@@ -10,6 +10,7 @@ Design:
 """
 from __future__ import annotations
 
+import ctypes
 import json
 import re
 import subprocess
@@ -25,7 +26,11 @@ WINS_RE = re.compile(
 
 class Toolchain:
     def __init__(self, tool_dir: str, timeout: float = 30.0):
-        self.tool_dir = Path(tool_dir)
+        raw = Path(tool_dir)
+        if not raw.is_absolute():
+            # resolve relative tool dirs against tools/framework, not the CWD
+            raw = (Path(__file__).resolve().parents[1] / raw).resolve()
+        self.tool_dir = raw
         self.input = self.tool_dir / "input.exe"
         self.input2 = self.tool_dir / "input2.exe"
         self.ui = self.tool_dir / "ui.exe"
@@ -36,6 +41,15 @@ class Toolchain:
             if not p.exists():
                 raise FileNotFoundError(f"toolchain missing: {p}")
 
+    @staticmethod
+    def _console_encoding() -> str:
+        """The helper exes write with the console output codepage (e.g. GBK or UTF-8)."""
+        try:
+            cp = ctypes.windll.kernel32.GetConsoleOutputCP()
+            return "utf-8" if cp == 65001 else (f"cp{cp}" if cp else "mbcs")
+        except Exception:
+            return "mbcs"
+
     # ---------- low level ----------
     def _run(self, exe: Path, *args: Any, timeout: Optional[float] = None) -> str:
         # .ps1 must be launched via powershell (direct CreateProcess -> WinError 193)
@@ -44,9 +58,9 @@ class Toolchain:
                    "-File", str(exe)] + [str(a) for a in args]
         else:
             cmd = [str(exe)] + [str(a) for a in args]
-        # ui.exe / read_vals.ps1 emit Chinese in the Windows ANSI codepage (GBK).
+        enc = self._console_encoding()
         p = subprocess.run(
-            cmd, capture_output=True, text=True, encoding="mbcs", errors="replace",
+            cmd, capture_output=True, text=True, encoding=enc, errors="replace",
             timeout=timeout or self.timeout,
         )
         if p.returncode != 0:
@@ -56,7 +70,7 @@ class Toolchain:
     def _ps(self, script: str, timeout: Optional[float] = None) -> str:
         p = subprocess.run(
             ["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-Command", script],
-            capture_output=True, text=True, encoding="mbcs", errors="replace",
+            capture_output=True, text=True, encoding=self._console_encoding(), errors="replace",
             timeout=timeout or self.timeout,
         )
         if p.returncode != 0:

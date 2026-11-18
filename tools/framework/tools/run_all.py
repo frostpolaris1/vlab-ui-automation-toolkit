@@ -264,7 +264,18 @@ class Runner:
                           "toolchain_git": subprocess.run(
                               ["git", "rev-parse", "--short", "HEAD"], cwd=SRC,
                               capture_output=True, text=True).stdout.strip()})
-        # manifest
+        # preliminary manifest so export_round can read metadata
+        (self.archive / "manifest.json").write_text(
+            json.dumps(self.info, ensure_ascii=False, indent=2), encoding="utf-8")
+        # export CSV/XLSX/HTML for humans
+        try:
+            out = self.run([sys.executable, "-I", str(ROOT / "tools" / "export_round.py"),
+                            "--round", str(self.archive)], "export")
+            self.info["export"] = str(self.archive / "export" / "round_data.xlsx")
+        except Exception as e:  # export is not a submission gate
+            self.log("export", f"failed: {e}")
+
+        # manifest (includes export files)
         files = []
         for p in sorted(self.archive.rglob("*")):
             if p.is_file() and p.name != "manifest.json":
@@ -293,6 +304,7 @@ class Runner:
                   f"- score: see `score_estimate_output.txt`",
                   f"- verify: see `verify_output.txt`",
                   f"- receipt: see `shots/04_submit_receipt.png`",
+                  f"- export: `export/round_data.xlsx` / `export/report.html` / CSV",
                   f"- audit: see `audit_saved_exam.txt` (if present)",
                   f"- steps: {len(self.info['steps'])}; finished: {self.info['finished_at']}"]
         (self.archive / "round_summary.md").write_text("\n".join(lines) + "\n", encoding="utf-8")

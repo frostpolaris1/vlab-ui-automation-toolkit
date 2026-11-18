@@ -20,10 +20,15 @@ description: 在 Windows 上以真实 UI 操作完成并提交高校虚拟仿真
 - 自检：`python -I <workspace>/tools/verify_archive.py`（应 47/47 PASS）。
 - **不要复用上一会话的数值/锚点**；先跑 Phase 0/2 核对布局与真值。红线：真实 UI/官方提交；不注入/不写内存/不改 bin/不重放/不改分。
 
-## 0.1 最快路径（2026-11-18 三轮迭代后）
+## 0.1 最快路径（2026-11-18 四轮迭代后）
 
-> 目标：**一条命令无人值守**：环境检查 → 钉布局 → 只读真值 → 算好 → UIA 填 101 字段 → 全量核对 →
-> 官方提交/回执 → 解密审计 → manifest。agent 只在失败时介入。
+> 目标：**双击一个程序**即可完成：环境检查 → 启动/复用 → 钉布局 → 只读真值 → 算好 → UIA 填 101 字段 →
+> 全量核对 → 官方提交/回执 → 解密审计 → CSV/XLSX/HTML 导出 → manifest。agent 只在失败时介入。
+
+**小白一键**：双击 `<workspace>/启动实验.cmd`（或桌面「VLab 一键实验」）；
+只查环境用 `启动实验.cmd -DoctorOnly`；防重复提交会提示，自动化可加 `-Force`。
+
+**命令行等价**：
 
 ```bash
 cd <workspace>/tools/framework
@@ -31,6 +36,9 @@ py -3 -I tools/doctor.py                        # 账号/实验名/进程/窗口
 py -3 -I tools/run_all.py --archive ../../data/round_auto_<n>   # 复用已启动客户端
 py -3 -I tools/run_all.py --start --archive ../../data/round_auto_<n>  # 自动启动
 ```
+
+每轮自动导出 `export/round_data.xlsx`（概览/测量/不确定度/填表值）、`measurements.csv`、
+`fill_values.csv`、`report.html`。单独导出：`py -3 -I tools/export_round.py`。
 
 手动分解（排障/教学）：
 1. `pin_layout.py` 钉死布局；之后一律**绝对坐标**（`references/absolute-layout.md`）。

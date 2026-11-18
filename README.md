@@ -22,6 +22,15 @@ window layout so coordinates are stable and reproducible.
   proprietary sources, exam configuration, or encryption keys.
 - No personal data, platform host/IP, account names, screenshots, or logs.
 
+## One-click
+
+Double-click `启动实验.cmd` (or the desktop shortcut) to run the whole flow:
+start/reuse the client, pin windows, read truth, fill 101 fields, verify,
+submit, audit, and export `data/round_*_oneclick/export/round_data.xlsx` +
+`report.html`. `-DoctorOnly` only reports the environment; `-Force` skips the
+duplicate-submit confirmation. Each round also writes measurements.csv,
+fill_values.csv, and an HTML report.
+
 ## Layout (fixed absolute coordinates)
 
 | window | position |
