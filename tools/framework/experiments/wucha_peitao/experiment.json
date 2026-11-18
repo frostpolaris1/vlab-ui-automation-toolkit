@@ -1,0 +1,119 @@
+{
+  "id": "wucha_peitao",
+  "name": "误差配套实验",
+  "n_holes": 5,
+  "instrument_errors": {"ruler": 0.2, "caliper": 0.02, "micrometer": 0.004},
+  "selection": {
+    "paper": {"L": "A", "B": "A", "H": "C"},
+    "gb": {"L": "A", "B": "B", "H": "C", "D": "A"}
+  },
+  "decimals": {
+    "paper": {"L": 1, "B": 1, "H": 3},
+    "gb": {"L": 1, "B": 2, "H": 3, "D": 1}
+  },
+  "objects": {
+    "paper": {"view_title": "100张纸"},
+    "gb": {"view_title": "带孔薄板"}
+  },
+  "macros": {
+    "micrometer": {
+      "setup": [
+        {"action": "dblclick", "target": "{{object}}.main_icon", "window": "main"},
+        {"action": "find_windows", "titles": {"view": "{{view_title}}"}},
+        {"action": "pin_windows", "layout": {"view": [1900, 1000]}},
+        {"action": "click", "target": "{{object}}.radio_{{option}}", "window": "view"},
+        {"action": "click", "target": "{{object}}.instrument_micrometer", "window": "view"}
+      ],
+      "repeat": [
+        {"action": "click", "target": "{{object}}.instrument_micrometer", "window": "view"},
+        {"action": "rightclick", "target": "{{object}}.lock", "window": "view"},
+        {"action": "hold", "target": "{{object}}.ratchet", "ms": 800, "repeat": 10, "window": "view"},
+        {"action": "drag", "from": "{{object}}.object_box", "to": "{{object}}.gap", "window": "view"},
+        {"action": "hold", "target": "{{object}}.ratchet", "ms": 800, "repeat": 10, "right": true, "window": "view"},
+        {"action": "wait_stable", "key": "ValueText2", "window": "view", "timeout": 12},
+        {"action": "record", "key": "ValueText2", "window": "view", "min": 0.01, "max": 30},
+        {"action": "click", "target": "{{object}}.btn_out", "window": "view"}
+      ]
+    },
+    "caliper": {
+      "setup": [
+        {"action": "dblclick", "target": "{{object}}.main_icon", "window": "main"},
+        {"action": "find_windows", "titles": {"view": "{{view_title}}"}},
+        {"action": "pin_windows", "layout": {"view": [1900, 1000]}},
+        {"action": "click", "target": "{{object}}.radio_{{option}}", "window": "view"},
+        {"action": "click", "target": "{{object}}.instrument_caliper", "window": "view"}
+      ],
+      "repeat": [
+        {"action": "click", "target": "{{object}}.instrument_caliper", "window": "view"},
+        {"action": "rightclick", "target": "{{object}}.lock", "window": "view"},
+        {"action": "drag", "from": "{{object}}.jaw_from", "to": "{{object}}.jaw_open", "window": "view"},
+        {"action": "drag", "from": "{{object}}.object_box", "to": "{{object}}.caliper_place", "window": "view"},
+        {"action": "wait_stable", "key": "ValueText", "window": "view", "timeout": 8},
+        {"action": "record", "key": "ValueText", "window": "view", "min": 0.01, "max": 150},
+        {"action": "click", "target": "{{object}}.btn_out", "window": "view"}
+      ]
+    },
+    "ruler": {
+      "setup": [
+        {"action": "dblclick", "target": "{{object}}.main_icon", "window": "main"},
+        {"action": "find_windows", "titles": {"view": "{{view_title}}"}},
+        {"action": "pin_windows", "layout": {"view": [1900, 1000]}},
+        {"action": "click", "target": "{{object}}.radio_{{option}}", "window": "view"},
+        {"action": "click", "target": "{{object}}.instrument_ruler", "window": "view"}
+      ],
+      "repeat": [
+        {"action": "click", "target": "{{object}}.instrument_ruler", "window": "view"},
+        {"action": "drag", "from": "{{object}}.object_box", "to": "{{object}}.ruler_band", "window": "view"},
+        {"action": "screenshot", "window": "view", "path": "logs/shots/ruler_{{store}}_{{iteration}}.png"},
+        {"action": "agent_fallback", "reason": "读取放大镜绝对 cm；把读数追加到 measurements.json 后，用 --start <当前Measure任务> 继续"},
+        {"action": "click", "target": "{{object}}.btn_out", "window": "view"}
+      ]
+    }
+  },
+  "fill": {
+    "grids": [
+      {"anchor": "data.gb_grid", "values": "gb.data", "rows": ["L", "B", "H", "D"], "cols": 6},
+      {"anchor": "data.paper_grid", "values": "paper.data", "rows": ["L", "B", "H"], "cols": 6}
+    ],
+    "singles": [
+      {"anchor": "data.choose1", "value": "choose.0"},
+      {"anchor": "data.choose2", "value": "choose.1"},
+      {"anchor": "data.choose3", "value": "choose.2"},
+      {"anchor": "data.choose4", "value": "choose.3"},
+      {"anchor": "data.choose5", "value": "choose.4"},
+      {"anchor": "data.choose6", "value": "choose.5"},
+      {"anchor": "data.choose7", "value": "choose.6"},
+      {"anchor": "data.gb_avg_L", "value": "gb.avg.L"},
+      {"anchor": "data.gb_avg_B", "value": "gb.avg.B"},
+      {"anchor": "data.gb_avg_H", "value": "gb.avg.H"},
+      {"anchor": "data.gb_avg_D", "value": "gb.avg.D"},
+      {"anchor": "data.gb_s_L", "value": "gb.S.L"},
+      {"anchor": "data.gb_s_B", "value": "gb.S.B"},
+      {"anchor": "data.gb_s_H", "value": "gb.S.H"},
+      {"anchor": "data.gb_s_D", "value": "gb.S.D"},
+      {"anchor": "data.gb_dA_L", "value": "gb.dA.L"},
+      {"anchor": "data.gb_dA_B", "value": "gb.dA.B"},
+      {"anchor": "data.gb_dA_H", "value": "gb.dA.H"},
+      {"anchor": "data.gb_dA_D", "value": "gb.dA.D"},
+      {"anchor": "data.gb_dB_L", "value": "gb.dB.L"},
+      {"anchor": "data.gb_dB_B", "value": "gb.dB.B"},
+      {"anchor": "data.gb_dB_H", "value": "gb.dB.H"},
+      {"anchor": "data.gb_dB_D", "value": "gb.dB.D"},
+      {"anchor": "data.gb_d_L", "value": "gb.d.L"},
+      {"anchor": "data.gb_d_B", "value": "gb.d.B"},
+      {"anchor": "data.gb_d_H", "value": "gb.d.H"},
+      {"anchor": "data.gb_d_D", "value": "gb.d.D"},
+      {"anchor": "data.gb_V", "value": "gb.V"},
+      {"anchor": "data.gb_rel", "value": "gb.rel"},
+      {"anchor": "data.gb_dV", "value": "gb.dV"},
+      {"anchor": "data.gb_expr", "value": "gb.expr"},
+      {"anchor": "data.paper_avg_L", "value": "paper.avg.L"},
+      {"anchor": "data.paper_avg_B", "value": "paper.avg.B"},
+      {"anchor": "data.paper_avg_H", "value": "paper.avg.H"},
+      {"anchor": "data.paper_V", "value": "paper.V"},
+      {"anchor": "data.paper_rel", "value": "paper.rel"},
+      {"anchor": "data.paper_dV", "value": "paper.dV"},
+      {"anchor": "data.paper_expr", "value": "paper.expr"}
+    ]
+  }
+}

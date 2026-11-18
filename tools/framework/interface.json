@@ -1,0 +1,18 @@
+{
+  "interface_version": 1,
+  "name": "VLab Automation Framework",
+  "description": "Fixed-flow, UIA-assisted, agent-fallback automation for USTCORi WebLab experiments.",
+  "controller": {
+    "type": "win32",
+    "tool_dir": "../skill/scripts"
+  },
+  "experiments": [
+    {
+      "name": "误差配套",
+      "id": "wucha_peitao",
+      "pipeline": "assets/resource/pipeline/wucha_peitao.json",
+      "experiment": "experiments/wucha_peitao/experiment.json",
+      "anchors": "experiments/wucha_peitao/anchors.json"
+    }
+  ]
+}

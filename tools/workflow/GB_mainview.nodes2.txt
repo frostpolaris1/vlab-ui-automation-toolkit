@@ -1,0 +1,1346 @@
+﻿NamespaceDeclaration
+NamespaceDeclaration
+NamespaceDeclaration
+NamespaceDeclaration
+NamespaceDeclaration
+StartObject | type=MainView
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=600]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=800]
+EndMember
+StartMember | member=Resources
+GetObject
+StartMember | member=DeferrableContent
+Value | value=System.IO.MemoryStream
+EndMember
+EndObject
+EndMember
+StartMember | member=Content
+StartObject | type=Grid
+StartMember | member=Background
+StartObject | type=ImageBrush
+StartMember | member=ImageSource
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Image/MainView/Background.png]
+EndMember
+EndObject
+EndMember
+StartMember | member=Children
+GetObject
+StartMember | member=_Items
+StartObject | type=GroupBox
+StartMember | member=Header
+Value | value=测量选项
+EndMember
+StartMember | member=FontSize
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=16]
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=145]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=120]
+EndMember
+StartMember | member=VerticalAlignment
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Center]
+EndMember
+StartMember | member=HorizontalAlignment
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Left]
+EndMember
+StartMember | member=Margin
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=22,128,0,327]
+EndMember
+StartMember | member=BorderBrush
+Value | value=System.Windows.Baml2006.DeferredBinaryDeserializerExtension [_canFreeze=False] [_converterId=744]
+EndMember
+StartMember | member=Content
+StartObject | type=StackPanel
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=120]
+EndMember
+StartMember | member=Children
+GetObject
+StartMember | member=_Items
+StartObject | type=RadioButton
+StartMember | member=ConnectionId
+Value | value=2
+EndMember
+StartMember | member=Name
+Value | value=measureLength
+EndMember
+StartMember | member=Content
+Value | value=长度测量
+EndMember
+StartMember | member=Margin
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=5]
+EndMember
+EndObject
+StartObject | type=RadioButton
+StartMember | member=ConnectionId
+Value | value=3
+EndMember
+StartMember | member=Name
+Value | value=measureWidth
+EndMember
+StartMember | member=Content
+Value | value=宽度测量
+EndMember
+StartMember | member=Margin
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=5]
+EndMember
+EndObject
+StartObject | type=RadioButton
+StartMember | member=ConnectionId
+Value | value=4
+EndMember
+StartMember | member=Name
+Value | value=measureHeight
+EndMember
+StartMember | member=Content
+Value | value=厚度测量
+EndMember
+StartMember | member=Margin
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=5]
+EndMember
+EndObject
+StartObject | type=RadioButton
+StartMember | member=ConnectionId
+Value | value=5
+EndMember
+StartMember | member=Name
+Value | value=measureDiameter
+EndMember
+StartMember | member=Content
+Value | value=孔径测量
+EndMember
+StartMember | member=Margin
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=5]
+EndMember
+EndObject
+EndMember
+EndObject
+EndMember
+EndObject
+EndMember
+EndObject
+StartObject | type=GroupBox
+StartMember | member=FontSize
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=16]
+EndMember
+StartMember | member=Header
+Value | value=待测物体
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=136]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=120]
+EndMember
+StartMember | member=Margin
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=22,284,0,0]
+EndMember
+StartMember | member=VerticalAlignment
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Top]
+EndMember
+StartMember | member=HorizontalAlignment
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Left]
+EndMember
+StartMember | member=BorderBrush
+Value | value=System.Windows.Baml2006.DeferredBinaryDeserializerExtension [_canFreeze=False] [_converterId=744]
+EndMember
+StartMember | member=Content
+StartObject | type=Canvas
+StartMember | member=ConnectionId
+Value | value=6
+EndMember
+StartMember | member=Name
+Value | value=ObjCanvas
+EndMember
+StartMember | member=HorizontalAlignment
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Center]
+EndMember
+StartMember | member=VerticalAlignment
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Center]
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=110]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=110]
+EndMember
+EndObject
+EndMember
+EndObject
+StartObject | type=Grid
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=600]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=630]
+EndMember
+StartMember | member=HorizontalAlignment
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Right]
+EndMember
+StartMember | member=Margin
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=0,0,10,0]
+EndMember
+StartMember | member=VerticalAlignment
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Top]
+EndMember
+StartMember | member=Children
+GetObject
+StartMember | member=_Items
+StartObject | type=Rectangle
+StartMember | member=RadiusX
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=50]
+EndMember
+StartMember | member=RadiusY
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=50]
+EndMember
+StartMember | member=StrokeThickness
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=1]
+EndMember
+StartMember | member=Stroke
+Value | value=System.Windows.Baml2006.DeferredBinaryDeserializerExtension [_canFreeze=False] [_converterId=744]
+EndMember
+StartMember | member=Fill
+StartObject | type=ImageBrush
+StartMember | member=ImageSource
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Image/YBKC/Background.png]
+EndMember
+EndObject
+EndMember
+EndObject
+StartObject | type=Canvas
+StartMember | member=ConnectionId
+Value | value=7
+EndMember
+StartMember | member=Name
+Value | value=MainCanvas
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=600]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=630]
+EndMember
+StartMember | member=ClipToBounds
+Value | value=True
+EndMember
+StartMember | member=Children
+GetObject
+StartMember | member=_Items
+StartObject | type=Canvas
+StartMember | member=ConnectionId
+Value | value=8
+EndMember
+StartMember | member=Name
+Value | value=YBKCCanvas
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=360]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=615]
+EndMember
+StartMember | member=Left
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=7]
+EndMember
+StartMember | member=Top
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=120]
+EndMember
+StartMember | member=Children
+GetObject
+StartMember | member=_Items
+StartObject | type=Canvas
+StartMember | member=ConnectionId
+Value | value=9
+EndMember
+StartMember | member=Name
+Value | value=InnerCanvas
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=70]
+EndMember
+StartMember | member=Left
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=83]
+EndMember
+StartMember | member=Top
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=135]
+EndMember
+EndObject
+StartObject | type=Image
+StartMember | member=ConnectionId
+Value | value=10
+EndMember
+StartMember | member=Name
+Value | value=BarImage
+EndMember
+StartMember | member=Source
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Image/YBKC/bar.png]
+EndMember
+StartMember | member=Stretch
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Uniform]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=400]
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=9]
+EndMember
+StartMember | member=Top
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=82]
+EndMember
+StartMember | member=Left
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=169]
+EndMember
+EndObject
+StartObject | type=Image
+StartMember | member=ConnectionId
+Value | value=11
+EndMember
+StartMember | member=Name
+Value | value=SecondBackImage
+EndMember
+StartMember | member=Source
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Image/YBKC/Second_back.png]
+EndMember
+StartMember | member=Stretch
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Uniform]
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=30]
+EndMember
+StartMember | member=Left
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=83]
+EndMember
+StartMember | member=Top
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=52]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=45]
+EndMember
+EndObject
+StartObject | type=Image
+StartMember | member=ConnectionId
+Value | value=12
+EndMember
+StartMember | member=Name
+Value | value=MainImage
+EndMember
+StartMember | member=Source
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Image/YBKC/Main.png]
+EndMember
+StartMember | member=Stretch
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Uniform]
+EndMember
+StartMember | member=Left
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=43]
+EndMember
+StartMember | member=Top
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=0]
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=210]
+EndMember
+EndObject
+StartObject | type=Image
+StartMember | member=ConnectionId
+Value | value=13
+EndMember
+StartMember | member=Name
+Value | value=SecondImage
+EndMember
+StartMember | member=Source
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Image/YBKC/Second.png]
+EndMember
+StartMember | member=Stretch
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Uniform]
+EndMember
+StartMember | member=Left
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=65]
+EndMember
+StartMember | member=Top
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=0]
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=213]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=143]
+EndMember
+EndObject
+StartObject | type=Image
+StartMember | member=Source
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Image/YBKC/Main_Front.png]
+EndMember
+StartMember | member=Stretch
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Uniform]
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=73]
+EndMember
+StartMember | member=Left
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=43]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=60]
+EndMember
+EndObject
+StartObject | type=Canvas
+StartMember | member=ConnectionId
+Value | value=14
+EndMember
+StartMember | member=Name
+Value | value=OuterCanvas
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=90]
+EndMember
+StartMember | member=Left
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=83]
+EndMember
+StartMember | member=Top
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=-42]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=0]
+EndMember
+EndObject
+StartObject | type=TextBlock
+StartMember | member=ConnectionId
+Value | value=15
+EndMember
+StartMember | member=Name
+Value | value=ValueText
+EndMember
+StartMember | member=Text
+Value | value=读数：0.00mm
+EndMember
+StartMember | member=Foreground
+Value | value=System.Windows.Baml2006.DeferredBinaryDeserializerExtension [_canFreeze=False] [_converterId=744]
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=14]
+EndMember
+StartMember | member=Left
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=492]
+EndMember
+StartMember | member=Top
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=8]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=72]
+EndMember
+EndObject
+StartObject | type=Rectangle
+StartMember | member=ConnectionId
+Value | value=16
+EndMember
+StartMember | member=Name
+Value | value=XuanNiu
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=18]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=18]
+EndMember
+StartMember | member=Fill
+Value | value=System.Windows.Baml2006.DeferredBinaryDeserializerExtension [_canFreeze=False] [_converterId=744]
+EndMember
+StartMember | member=Opacity
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=0.1]
+EndMember
+StartMember | member=Left
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=138]
+EndMember
+StartMember | member=Top
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=37]
+EndMember
+StartMember | member=Cursor
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Hand]
+EndMember
+StartMember | member=ToolTip
+Value | value=锁定旋钮：左键点击锁定，右键点击解锁
+EndMember
+EndObject
+StartObject | type=Rectangle
+StartMember | member=ConnectionId
+Value | value=17
+EndMember
+StartMember | member=Name
+Value | value=DragRect
+EndMember
+StartMember | member=Fill
+Value | value=System.Windows.Baml2006.DeferredBinaryDeserializerExtension [_canFreeze=False] [_converterId=744]
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=31]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=31]
+EndMember
+StartMember | member=Opacity
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=0.1]
+EndMember
+StartMember | member=Left
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=334]
+EndMember
+StartMember | member=Top
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=114]
+EndMember
+StartMember | member=Cursor
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Hand]
+EndMember
+StartMember | member=ToolTip
+Value | value=左键按下拖动游标移动
+EndMember
+EndObject
+StartObject | type=TextBlock
+StartMember | member=Text
+Value | value=主尺刻度
+EndMember
+StartMember | member=FontFamily
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=黑体]
+EndMember
+StartMember | member=FontSize
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=12]
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=14]
+EndMember
+StartMember | member=Left
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=44]
+EndMember
+StartMember | member=Top
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=269]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=48]
+EndMember
+StartMember | member=Foreground
+Value | value=System.Windows.Baml2006.DeferredBinaryDeserializerExtension [_canFreeze=False] [_converterId=744]
+EndMember
+EndObject
+StartObject | type=TextBlock
+StartMember | member=Text
+Value | value=副尺刻度
+EndMember
+StartMember | member=FontFamily
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=黑体]
+EndMember
+StartMember | member=FontSize
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=12]
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=14]
+EndMember
+StartMember | member=Left
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=44]
+EndMember
+StartMember | member=Top
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=339]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=48]
+EndMember
+StartMember | member=Foreground
+Value | value=System.Windows.Baml2006.DeferredBinaryDeserializerExtension [_canFreeze=False] [_converterId=744]
+EndMember
+EndObject
+StartObject | type=Canvas
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=130]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=440]
+EndMember
+StartMember | member=ClipToBounds
+Value | value=True
+EndMember
+StartMember | member=Left
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=98]
+EndMember
+StartMember | member=Top
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=230]
+EndMember
+StartMember | member=Children
+GetObject
+StartMember | member=_Items
+StartObject | type=Image
+StartMember | member=ConnectionId
+Value | value=18
+EndMember
+StartMember | member=Name
+Value | value=MainBigImage
+EndMember
+StartMember | member=Source
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Image/YBKC/MainBig.png]
+EndMember
+StartMember | member=Stretch
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Uniform]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=1626]
+EndMember
+StartMember | member=Left
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=-1057.6]
+EndMember
+StartMember | member=Top
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=-3]
+EndMember
+EndObject
+StartObject | type=Image
+StartMember | member=Source
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Image/YBKC/Main_Big.png]
+EndMember
+StartMember | member=Stretch
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Uniform]
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=153]
+EndMember
+StartMember | member=Left
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=30]
+EndMember
+StartMember | member=Top
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=73]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=395]
+EndMember
+StartMember | member=RenderTransform
+StartObject | type=ScaleTransform
+StartMember | member=ScaleX
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=0.987]
+EndMember
+EndObject
+EndMember
+EndObject
+EndMember
+EndObject
+EndMember
+EndObject
+EndMember
+EndObject
+EndMember
+EndObject
+StartObject | type=Canvas
+StartMember | member=ConnectionId
+Value | value=19
+EndMember
+StartMember | member=Name
+Value | value=GZC
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=360]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=615]
+EndMember
+StartMember | member=Left
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=7]
+EndMember
+StartMember | member=Top
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=120]
+EndMember
+StartMember | member=Children
+GetObject
+StartMember | member=_Items
+StartObject | type=Canvas
+StartMember | member=ConnectionId
+Value | value=20
+EndMember
+StartMember | member=Name
+Value | value=GZCCanvas
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=360]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=615]
+EndMember
+EndObject
+StartObject | type=Image
+StartMember | member=ConnectionId
+Value | value=21
+EndMember
+StartMember | member=Name
+Value | value=ins_Rule
+EndMember
+StartMember | member=Source
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=/USTCORi.SimExp.Instruments.GB;component/Image/gzc/bigRule.png]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=695]
+EndMember
+StartMember | member=Left
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=-40]
+EndMember
+StartMember | member=Top
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=163]
+EndMember
+EndObject
+EndMember
+EndObject
+EndMember
+EndObject
+StartObject | type=Rectangle
+StartMember | member=ConnectionId
+Value | value=22
+EndMember
+StartMember | member=Name
+Value | value=Magnify
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=60]
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=120]
+EndMember
+StartMember | member=Stroke
+Value | value=System.Windows.Baml2006.DeferredBinaryDeserializerExtension [_canFreeze=False] [_converterId=744]
+EndMember
+StartMember | member=Visibility
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Visible]
+EndMember
+StartMember | member=ToolTip
+Value | value=矩形区域可以放大刻度尺，左右拖动矩形区域，改变其放大位置
+EndMember
+StartMember | member=StrokeThickness
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=0]
+EndMember
+StartMember | member=Left
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=100]
+EndMember
+StartMember | member=Top
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=210]
+EndMember
+StartMember | member=Fill
+StartObject | type=VisualBrush
+StartMember | member=Viewbox
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=100,247,30,60]
+EndMember
+StartMember | member=ViewboxUnits
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Absolute]
+EndMember
+StartMember | member=ViewportUnits
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=RelativeToBoundingBox]
+EndMember
+StartMember | member=Viewport
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=0,0,1,1]
+EndMember
+StartMember | member=Visual
+StartObject | type=Binding
+StartMember | member=ElementName
+Value | value=GZC
+EndMember
+EndObject
+EndMember
+EndObject
+EndMember
+EndObject
+StartObject | type=Canvas
+StartMember | member=ConnectionId
+Value | value=23
+EndMember
+StartMember | member=Name
+Value | value=QFCCanvas
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=206]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=608]
+EndMember
+StartMember | member=Left
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=11]
+EndMember
+StartMember | member=Top
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=197]
+EndMember
+StartMember | member=Children
+GetObject
+StartMember | member=_Items
+StartObject | type=Canvas
+StartMember | member=ConnectionId
+Value | value=24
+EndMember
+StartMember | member=Name
+Value | value=MeasureCanvas
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=20]
+EndMember
+StartMember | member=Left
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=75]
+EndMember
+StartMember | member=Top
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=37]
+EndMember
+StartMember | member=Background
+Value | value=System.Windows.Baml2006.DeferredBinaryDeserializerExtension [_canFreeze=False] [_converterId=744]
+EndMember
+EndObject
+StartObject | type=Image
+StartMember | member=ConnectionId
+Value | value=25
+EndMember
+StartMember | member=Name
+Value | value=imgCWLG
+EndMember
+StartMember | member=Source
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=/USTCORi.SimExp.Instruments.GB;component/Image/QFC/QFC_CWLG.PNG]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=608]
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=206]
+EndMember
+StartMember | member=Left
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=-63]
+EndMember
+EndObject
+StartObject | type=Image
+StartMember | member=Source
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=/USTCORi.SimExp.Instruments.GB;component/Image/QFC/QFC_Subject.PNG]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=608]
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=206]
+EndMember
+EndObject
+StartObject | type=Image
+StartMember | member=Source
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=/USTCORi.SimExp.Instruments.GB;component/Image/QFC/QFC_KD_Horizon.png]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=608]
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=206]
+EndMember
+EndObject
+StartObject | type=Image
+StartMember | member=ConnectionId
+Value | value=26
+EndMember
+StartMember | member=Name
+Value | value=imgWFT
+EndMember
+StartMember | member=Source
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=/USTCORi.SimExp.Instruments.GB;component/Image/QFC/QFC_WFT.PNG]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=608]
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=206]
+EndMember
+StartMember | member=Left
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=-90]
+EndMember
+EndObject
+StartObject | type=Image
+StartMember | member=ConnectionId
+Value | value=27
+EndMember
+StartMember | member=Name
+Value | value=imgJL
+EndMember
+StartMember | member=Source
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=/USTCORi.SimExp.Instruments.GB;component/Image/QFC/QFC_JL.PNG]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=608]
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=206]
+EndMember
+StartMember | member=Left
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=-90]
+EndMember
+EndObject
+StartObject | type=Image
+StartMember | member=ConnectionId
+Value | value=28
+EndMember
+StartMember | member=Name
+Value | value=imgUnLock
+EndMember
+StartMember | member=Source
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=/USTCORi.SimExp.Instruments.GB;component/Image/QFC/QFC_Unlock.PNG]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=608]
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=206]
+EndMember
+StartMember | member=Visibility
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Hidden]
+EndMember
+EndObject
+StartObject | type=Image
+StartMember | member=ConnectionId
+Value | value=29
+EndMember
+StartMember | member=Name
+Value | value=imgLock
+EndMember
+StartMember | member=Source
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=/USTCORi.SimExp.Instruments.GB;component/Image/QFC/QFC_Lock.PNG]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=608]
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=206]
+EndMember
+EndObject
+StartObject | type=TextBlock
+StartMember | member=ConnectionId
+Value | value=30
+EndMember
+StartMember | member=Name
+Value | value=ValueText2
+EndMember
+StartMember | member=Text
+Value | value=读数：0.00mm
+EndMember
+StartMember | member=Foreground
+Value | value=System.Windows.Baml2006.DeferredBinaryDeserializerExtension [_canFreeze=False] [_converterId=744]
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=14]
+EndMember
+StartMember | member=Left
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=492]
+EndMember
+StartMember | member=Top
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=8]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=72]
+EndMember
+EndObject
+StartObject | type=Canvas
+StartMember | member=Children
+GetObject
+StartMember | member=_Items
+StartObject | type=Canvas
+StartMember | member=ConnectionId
+Value | value=31
+EndMember
+StartMember | member=Name
+Value | value=RestNumCanvas
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=41]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=32]
+EndMember
+StartMember | member=ClipToBounds
+Value | value=True
+EndMember
+StartMember | member=Left
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=253]
+EndMember
+StartMember | member=Top
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=26]
+EndMember
+StartMember | member=Children
+GetObject
+StartMember | member=_Items
+StartObject | type=Image
+StartMember | member=ConnectionId
+Value | value=32
+EndMember
+StartMember | member=Name
+Value | value=imgKD
+EndMember
+StartMember | member=Source
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=/USTCORi.SimExp.Instruments.GB;component/Image/QFC/KD_Vertical.png]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=32]
+EndMember
+StartMember | member=Left
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=0]
+EndMember
+StartMember | member=Top
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=0.5]
+EndMember
+EndObject
+EndMember
+EndObject
+EndMember
+EndObject
+StartObject | type=Rectangle
+StartMember | member=ConnectionId
+Value | value=33
+EndMember
+StartMember | member=Name
+Value | value=recLock
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=18]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=18]
+EndMember
+StartMember | member=Fill
+Value | value=System.Windows.Baml2006.DeferredBinaryDeserializerExtension [_canFreeze=False] [_converterId=744]
+EndMember
+StartMember | member=RadiusX
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=9]
+EndMember
+StartMember | member=RadiusY
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=9]
+EndMember
+StartMember | member=Left
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=209]
+EndMember
+StartMember | member=Top
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=47]
+EndMember
+StartMember | member=Cursor
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Hand]
+EndMember
+StartMember | member=ToolTip
+Value | value=锁定旋钮：左键点击锁定，右键点击解锁
+EndMember
+EndObject
+StartObject | type=Rectangle
+StartMember | member=ConnectionId
+Value | value=34
+EndMember
+StartMember | member=Name
+Value | value=recWFT
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=52]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=55]
+EndMember
+StartMember | member=Fill
+Value | value=System.Windows.Baml2006.DeferredBinaryDeserializerExtension [_canFreeze=False] [_converterId=744]
+EndMember
+StartMember | member=Left
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=355]
+EndMember
+StartMember | member=Top
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=21]
+EndMember
+StartMember | member=ToolTip
+Value | value=左键按下顺时针旋转，右键按下逆时针旋转。
+EndMember
+EndObject
+StartObject | type=Rectangle
+StartMember | member=ConnectionId
+Value | value=35
+EndMember
+StartMember | member=Name
+Value | value=recJL
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=35]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=20]
+EndMember
+StartMember | member=Fill
+Value | value=System.Windows.Baml2006.DeferredBinaryDeserializerExtension [_canFreeze=False] [_converterId=744]
+EndMember
+StartMember | member=Left
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=478]
+EndMember
+StartMember | member=Top
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=29]
+EndMember
+StartMember | member=ToolTip
+Value | value=左键按下顺时针旋转，右键按下逆时针旋转。
+EndMember
+EndObject
+EndMember
+EndObject
+EndMember
+EndObject
+EndMember
+EndObject
+EndMember
+EndObject
+EndMember
+EndObject
+EndMember
+EndObject
+StartObject | type=Grid
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=400]
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=30]
+EndMember
+StartMember | member=Margin
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=100,330,0,0]
+EndMember
+StartMember | member=VerticalAlignment
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Top]
+EndMember
+StartMember | member=HorizontalAlignment
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Left]
+EndMember
+StartMember | member=Children
+GetObject
+StartMember | member=_Items
+StartObject | type=TextBlock
+StartMember | member=ConnectionId
+Value | value=36
+EndMember
+StartMember | member=Name
+Value | value=MessageText
+EndMember
+StartMember | member=Text
+Value | value=提示信息
+EndMember
+StartMember | member=FontFamily
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=黑体]
+EndMember
+StartMember | member=FontSize
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=16]
+EndMember
+StartMember | member=HorizontalAlignment
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Center]
+EndMember
+StartMember | member=VerticalAlignment
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Center]
+EndMember
+StartMember | member=Opacity
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=0]
+EndMember
+EndObject
+EndMember
+EndObject
+EndMember
+EndObject
+StartObject | type=Button
+StartMember | member=ConnectionId
+Value | value=37
+EndMember
+StartMember | member=Name
+Value | value=btnOut
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=25]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=80]
+EndMember
+StartMember | member=Left
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=512]
+EndMember
+StartMember | member=Top
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=54]
+EndMember
+StartMember | member=Margin
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=0,28,28,0]
+EndMember
+StartMember | member=VerticalAlignment
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Top]
+EndMember
+StartMember | member=HorizontalAlignment
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Right]
+EndMember
+StartMember | member=Content
+Value | value=移出物体
+EndMember
+EndObject
+StartObject | type=GroupBox
+StartMember | member=ConnectionId
+Value | value=38
+EndMember
+StartMember | member=Name
+Value | value=InsGroup
+EndMember
+StartMember | member=Header
+Value | value=测量仪器选择
+EndMember
+StartMember | member=FontSize
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=15]
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=120]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=630]
+EndMember
+StartMember | member=VerticalAlignment
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Bottom]
+EndMember
+StartMember | member=HorizontalAlignment
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Left]
+EndMember
+StartMember | member=BorderBrush
+Value | value=System.Windows.Baml2006.DeferredBinaryDeserializerExtension [_canFreeze=False] [_converterId=744]
+EndMember
+StartMember | member=Resources
+GetObject
+StartMember | member=DeferrableContent
+Value | value=System.IO.MemoryStream
+EndMember
+EndObject
+EndMember
+StartMember | member=Content
+StartObject | type=FishEyePanel
+StartMember | member=ConnectionId
+Value | value=39
+EndMember
+StartMember | member=Name
+Value | value=fishButtons
+EndMember
+StartMember | member=HorizontalAlignment
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Center]
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=80]
+EndMember
+StartMember | member=VerticalAlignment
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Bottom]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=280]
+EndMember
+StartMember | member=Children
+GetObject
+StartMember | member=_Items
+StartObject | type=Border
+StartMember | member=ConnectionId
+Value | value=40
+EndMember
+StartMember | member=Name
+Value | value=imgQFC
+EndMember
+StartMember | member=Margin
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=10,0,0,0]
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=60]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=60]
+EndMember
+StartMember | member=VerticalAlignment
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Top]
+EndMember
+StartMember | member=HorizontalAlignment
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Left]
+EndMember
+StartMember | member=Style
+Value | value=System.Windows.StaticResourceExtension
+EndMember
+StartMember | member=Cursor
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Hand]
+EndMember
+StartMember | member=Child
+StartObject | type=Image
+StartMember | member=Source
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=/USTCORi.SimExp.Instruments.GB;component/Image/MainView/Icon_QFC.png]
+EndMember
+EndObject
+EndMember
+EndObject
+StartObject | type=Border
+StartMember | member=ConnectionId
+Value | value=41
+EndMember
+StartMember | member=Name
+Value | value=imgRule
+EndMember
+StartMember | member=Margin
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=10,0,0,0]
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=60]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=60]
+EndMember
+StartMember | member=VerticalAlignment
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Top]
+EndMember
+StartMember | member=HorizontalAlignment
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Left]
+EndMember
+StartMember | member=Style
+Value | value=System.Windows.StaticResourceExtension
+EndMember
+StartMember | member=Cursor
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Hand]
+EndMember
+StartMember | member=Child
+StartObject | type=Image
+StartMember | member=Source
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=/USTCORi.SimExp.Instruments.GB;component/Image/MainView/Icon_GZC.png]
+EndMember
+EndObject
+EndMember
+EndObject
+StartObject | type=Border
+StartMember | member=ConnectionId
+Value | value=42
+EndMember
+StartMember | member=Name
+Value | value=imgYBKC
+EndMember
+StartMember | member=Margin
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=10,0,0,0]
+EndMember
+StartMember | member=Height
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=60]
+EndMember
+StartMember | member=Width
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=60]
+EndMember
+StartMember | member=VerticalAlignment
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Top]
+EndMember
+StartMember | member=HorizontalAlignment
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Left]
+EndMember
+StartMember | member=Style
+Value | value=System.Windows.StaticResourceExtension
+EndMember
+StartMember | member=Cursor
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=Hand]
+EndMember
+StartMember | member=Child
+StartObject | type=Image
+StartMember | member=Source
+Value | value=System.Windows.Baml2006.TypeConverterMarkupExtension [_value=/USTCORi.SimExp.Instruments.GB;component/Image/MainView/Icon_YBKC.png]
+EndMember
+EndObject
+EndMember
+EndObject
+EndMember
+EndObject
+EndMember
+EndObject
+EndMember
+EndObject
+EndMember
+EndObject
+EndMember
+EndObject
+EndMember
+EndObject
+EndMember
+EndObject
+EndMember
+EndObject

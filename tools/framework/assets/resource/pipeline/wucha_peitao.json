@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "entry": "Start",
+  "tasks": {
+    "Start": {
+      "action": "find_windows",
+      "params": {"titles": {"main": "误差配套实验", "data": "实验数据表格"}},
+      "next": "Pin"
+    },
+    "Pin": {
+      "action": "pin_windows",
+      "params": {"layout": {"main": [0, 0], "data": [1900, 0]}},
+      "next": "CheckAnchors"
+    },
+    "CheckAnchors": {
+      "action": "check_anchors",
+      "params": {},
+      "on_fail": "agent",
+      "next": "MeasureGBL"
+    },
+    "MeasureGBL": {
+      "action": "measure",
+      "params": {"object": "gb", "option": "length", "instrument": "ruler", "times": 6, "store": "gb.L", "decimals": 1},
+      "on_fail": "agent",
+      "next": "MeasureGBB"
+    },
+    "MeasureGBB": {
+      "action": "measure",
+      "params": {"object": "gb", "option": "width", "instrument": "caliper", "times": 6, "store": "gb.B", "decimals": 2},
+      "on_fail": "agent",
+      "next": "MeasureGBH"
+    },
+    "MeasureGBH": {
+      "action": "measure",
+      "params": {"object": "gb", "option": "thickness", "instrument": "micrometer", "times": 6, "store": "gb.H", "decimals": 3},
+      "on_fail": "agent",
+      "next": "MeasureGBD"
+    },
+    "MeasureGBD": {
+      "action": "measure",
+      "params": {"object": "gb", "option": "diameter", "instrument": "ruler", "times": 6, "store": "gb.D", "decimals": 1},
+      "on_fail": "agent",
+      "next": "MeasurePaperL"
+    },
+    "MeasurePaperL": {
+      "action": "measure",
+      "params": {"object": "paper", "option": "length", "instrument": "ruler", "times": 6, "store": "paper.L", "decimals": 1},
+      "on_fail": "agent",
+      "next": "MeasurePaperB"
+    },
+    "MeasurePaperB": {
+      "action": "measure",
+      "params": {"object": "paper", "option": "width", "instrument": "ruler", "times": 6, "store": "paper.B", "decimals": 1},
+      "on_fail": "agent",
+      "next": "MeasurePaperH"
+    },
+    "MeasurePaperH": {
+      "action": "measure",
+      "params": {"object": "paper", "option": "thickness", "instrument": "micrometer", "times": 6, "store": "paper.H", "decimals": 3},
+      "on_fail": "agent",
+      "next": "Compute"
+    },
+    "Compute": {
+      "action": "run_script",
+      "params": {"script": "build_fill_plan.py", "args": ["measurements.json", "fill_values.json"]},
+      "on_fail": "agent",
+      "next": "FieldMap"
+    },
+    "FieldMap": {
+      "action": "run_script",
+      "params": {"script": "gen_field_map.py", "args": ["../data/package/ExamConfig_3.xml", "fill_values.json"]},
+      "on_fail": "agent",
+      "next": "Review"
+    },
+    "Review": {
+      "action": "run_script",
+      "params": {"script": "score_estimate.py", "args": ["../data/package/ExamConfig_3.xml", "fill_values.json", "95"]},
+      "on_fail": "agent",
+      "next": "Fill"
+    },
+    "Fill": {
+      "action": "fill",
+      "params": {"values": "fill_values.json"},
+      "on_fail": "agent",
+      "next": "Verify"
+    },
+    "Verify": {
+      "action": "verify",
+      "params": {"values": "fill_values.json"},
+      "on_fail": "agent",
+      "next": "PreSubmitGate"
+    },
+    "PreSubmitGate": {
+      "action": "agent_fallback",
+      "params": {"reason": "检查 logs/shots/verify_data.png 与 fill_values.json；确认后 --resume 提交"},
+      "next": "Submit"
+    },
+    "Submit": {
+      "action": "submit",
+      "params": {"anchor": "data.submit"},
+      "on_fail": "agent",
+      "next": "Decrypt"
+    },
+    "Decrypt": {
+      "action": "decrypt",
+      "params": {},
+      "on_fail": "agent",
+      "next": "Audit"
+    },
+    "Audit": {
+      "action": "run_script",
+      "params": {"script": "check_saved_exam.py", "args": ["saved_exam.xml", "fill_values.json"]},
+      "on_fail": "agent",
+      "next": null
+    }
+  }
+}

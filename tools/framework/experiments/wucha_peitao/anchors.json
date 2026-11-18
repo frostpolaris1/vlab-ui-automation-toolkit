@@ -1,0 +1,393 @@
+{
+  "_comment": "所有坐标都是窗口相对物理像素；复制为 anchors.json，截图校准后把 calibrated 改为 true。大视图坐标来自上一轮 (1900,1000) 布局，仅作起点。",
+  "calibrated": true,
+  "paper": {
+    "main_icon": [
+      720,
+      935
+    ],
+    "radio_length": [
+      74,
+      375
+    ],
+    "radio_width": [
+      74,
+      430
+    ],
+    "radio_thickness": [
+      74,
+      486
+    ],
+    "instrument_micrometer": [
+      676,
+      1004
+    ],
+    "instrument_ruler": [
+      840,
+      1012
+    ],
+    "instrument_caliper": [
+      1004,
+      1011
+    ],
+    "lock": [
+      678,
+      483
+    ],
+    "ratchet": [
+      1012,
+      467
+    ],
+    "jaw_from": [
+      900,
+      500
+    ],
+    "jaw_open": [
+      1050,
+      500
+    ],
+    "object_box": [
+      147,
+      665
+    ],
+    "gap": [
+      462,
+      467
+    ],
+    "caliper_place": [
+      900,
+      500
+    ],
+    "ruler_band": [
+      700,
+      571
+    ],
+    "btn_out": [
+      1270,
+      113
+    ]
+  },
+  "gb": {
+    "main_icon": [
+      370,
+      955
+    ],
+    "radio_length": [
+      66,
+      325
+    ],
+    "radio_width": [
+      66,
+      380
+    ],
+    "radio_thickness": [
+      66,
+      431
+    ],
+    "instrument_micrometer": [
+      676,
+      1004
+    ],
+    "instrument_ruler": [
+      840,
+      1012
+    ],
+    "instrument_caliper": [
+      1004,
+      1011
+    ],
+    "lock": [
+      678,
+      483
+    ],
+    "ratchet": [
+      1012,
+      467
+    ],
+    "jaw_from": [
+      900,
+      500
+    ],
+    "jaw_open": [
+      1050,
+      500
+    ],
+    "object_box": [
+      147,
+      665
+    ],
+    "gap": [
+      462,
+      467
+    ],
+    "caliper_place": [
+      900,
+      500
+    ],
+    "ruler_band": [
+      700,
+      571
+    ],
+    "btn_out": [
+      1270,
+      113
+    ],
+    "radio_diameter": [
+      66,
+      481
+    ]
+  },
+  "data": {
+    "gb_grid": {
+      "origin": [
+        270,
+        690
+      ],
+      "cell_w": 135,
+      "cell_h": 36
+    },
+    "paper_grid": {
+      "origin": [
+        270,
+        362
+      ],
+      "cell_w": 145,
+      "cell_h": 36
+    },
+    "choose1": {
+      "rel": [
+        900,
+        407
+      ]
+    },
+    "choose2": {
+      "rel": [
+        900,
+        447
+      ]
+    },
+    "choose3": {
+      "rel": [
+        900,
+        487
+      ]
+    },
+    "choose4": {
+      "rel": [
+        900,
+        527
+      ]
+    },
+    "choose5": {
+      "rel": [
+        790,
+        117
+      ]
+    },
+    "choose6": {
+      "rel": [
+        790,
+        172
+      ]
+    },
+    "choose7": {
+      "rel": [
+        790,
+        227
+      ]
+    },
+    "gb_avg_L": {
+      "rel": [
+        600,
+        220
+      ]
+    },
+    "gb_avg_B": {
+      "rel": [
+        600,
+        250
+      ]
+    },
+    "gb_avg_H": {
+      "rel": [
+        600,
+        280
+      ]
+    },
+    "gb_avg_D": {
+      "rel": [
+        600,
+        310
+      ]
+    },
+    "gb_s_L": {
+      "rel": [
+        600,
+        340
+      ]
+    },
+    "gb_s_B": {
+      "rel": [
+        600,
+        370
+      ]
+    },
+    "gb_s_H": {
+      "rel": [
+        600,
+        400
+      ]
+    },
+    "gb_s_D": {
+      "rel": [
+        600,
+        430
+      ]
+    },
+    "gb_dA_L": {
+      "rel": [
+        600,
+        460
+      ]
+    },
+    "gb_dA_B": {
+      "rel": [
+        600,
+        490
+      ]
+    },
+    "gb_dA_H": {
+      "rel": [
+        600,
+        520
+      ]
+    },
+    "gb_dA_D": {
+      "rel": [
+        600,
+        550
+      ]
+    },
+    "gb_dB_L": {
+      "rel": [
+        600,
+        580
+      ]
+    },
+    "gb_dB_B": {
+      "rel": [
+        600,
+        610
+      ]
+    },
+    "gb_dB_H": {
+      "rel": [
+        600,
+        640
+      ]
+    },
+    "gb_dB_D": {
+      "rel": [
+        600,
+        670
+      ]
+    },
+    "gb_d_L": {
+      "rel": [
+        600,
+        700
+      ]
+    },
+    "gb_d_B": {
+      "rel": [
+        600,
+        730
+      ]
+    },
+    "gb_d_H": {
+      "rel": [
+        600,
+        760
+      ]
+    },
+    "gb_d_D": {
+      "rel": [
+        600,
+        790
+      ]
+    },
+    "gb_V": {
+      "rel": [
+        600,
+        820
+      ]
+    },
+    "gb_rel": {
+      "rel": [
+        600,
+        850
+      ]
+    },
+    "gb_dV": {
+      "rel": [
+        600,
+        880
+      ]
+    },
+    "gb_expr": {
+      "rel": [
+        600,
+        910
+      ]
+    },
+    "paper_avg_L": {
+      "rel": [
+        513,
+        510
+      ]
+    },
+    "paper_avg_B": {
+      "rel": [
+        516,
+        565
+      ]
+    },
+    "paper_avg_H": {
+      "rel": [
+        519,
+        620
+      ]
+    },
+    "paper_V": {
+      "rel": [
+        476,
+        675
+      ]
+    },
+    "paper_rel": {
+      "rel": [
+        541,
+        730
+      ]
+    },
+    "paper_dV": {
+      "rel": [
+        538,
+        785
+      ]
+    },
+    "paper_expr": {
+      "rel": [
+        477,
+        841
+      ]
+    },
+    "submit": {
+      "rel": [
+        1090,
+        930
+      ]
+    }
+  },
+  "_live_note": "2026-11-18 live: GB grid (270,690) 135x36; paper grid (270,362) 145x36 after scrolling to paper section; choose5-7 UIA 2690,117/172/227 (data-rel 790,...); paper stats UIA rel 513,510/516,565/519,620/476,675/541,730/538,785/477,841; submit (1090,930). Single fields: UIA ValuePattern.SetValue is more reliable than coordinate clicks."
+}
