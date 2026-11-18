@@ -28,6 +28,12 @@ STATES = {
         "range": (80, 170),
         "target": 900,
     },
+    # full paper B-class table visible (scroll up a little from bottom)
+    "paper_b": {
+        "label": "2. 测量一张纸的体积",
+        "range": (70, 140),
+        "target": 600,
+    },
 }
 
 THUMB_RE = re.compile(r"Thumb name=\[\] aid=\[\] @(\d+),(-?\d+),(\d+)x(\d+)")
